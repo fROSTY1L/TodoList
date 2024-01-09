@@ -1,4 +1,5 @@
 import './App.css';
+import Modal from './components/Modal';
 import TodoWrapper from './components/TodoWrapper';
 
 function App() {

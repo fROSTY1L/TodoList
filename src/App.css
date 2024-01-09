@@ -5,13 +5,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: white
 }
 
 body {
   background: #8758ff;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .App {
@@ -29,6 +29,7 @@ h1 {
   margin-top: 5rem;
   padding: 2rem;
   border-radius: 5px;
+
 }
 
 .TodoForm {
@@ -89,4 +90,51 @@ h1 {
 .delete-icon {
   cursor: pointer;
 }
- 
+
+
+
+.ModalBg{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+
+}
+
+.ModalContainer{
+  text-align: start;
+  background-color:#8758ff;
+  border-radius: 20px;
+  padding: 20px;
+  position: relative;
+  
+}
+
+.fa-xmark{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.Modal-open{
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  position: fixed;
+  top: 90%;
+  right: 20px;
+  border-radius: 100%;
+  background-color:#1A1A40;
+  padding: 20px;
+
+}
+
+
+

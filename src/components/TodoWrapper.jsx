@@ -3,6 +3,9 @@ import TodoForm from './TodoForm'
 import {v4 as uuidv4} from 'uuid'
 import Todo from './Todo';
 import EditTodoForm from './EditTodoForm';
+import Modal from './Modal';
+import { faClipboard } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 uuidv4();
 
 const TodoWrapper = () => {
@@ -28,13 +31,27 @@ const TodoWrapper = () => {
     const editTask = (task, id) => {
         setTodos(todos.map(todo => todo.id === id ? {...todo, task, isEditing: !todo.isEditing}: todo))
     }
+
+    const [isModal, setModal] = useState(false)
+
+    const toggleModal = () => {
+      setModal(!isModal);
+    }
   return (
     <div className='TodoWrapper'>
-        <h1>Todo List</h1>
+      <div className="title-wrap">
+      <h1 className='main-title'>Todo List</h1>
+      <div>
+      <FontAwesomeIcon onClick={toggleModal} className='Modal-open' icon={faClipboard}/>
+      </div>
+      </div>
+        
       <TodoForm addTodo={addTodo}/>
       {todos.map((todo, index) => (todo.isEditing ? (<EditTodoForm editTodo={editTask} task={todo}/>) : (
         <Todo task={todo} key={index} toggleComplete={toggleComplete} deleteTodo={deleteTodo} editTodo={editTodo}/>
       )))}
+      
+      {isModal && <Modal setToggleModal={toggleModal}/>}
     </div>
   )
 }
